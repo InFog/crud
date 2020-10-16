@@ -19,7 +19,7 @@ if(isset($_POST['action'])) {
 }
 
 $class = new Student();
-$class -> readAll();
+$students = $class -> readAll();
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -40,8 +40,7 @@ $class -> readAll();
         </thead>
         <tbody>
         <?php
-        if(isset($class)) {
-          foreach($class as $student) {
+          foreach($students as $student) :
         ?>
           <tr>
             <td><?= $student['id']; ?></td>
@@ -59,8 +58,7 @@ $class -> readAll();
             </td>
           </tr>
         <?php
-          }
-        }
+          endforeach;
         ?>
         </tbody>
       </table>
